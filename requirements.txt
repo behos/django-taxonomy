@@ -7,8 +7,6 @@ Pillow==2.4.0
 pytz==2014.4
 django_compressor==1.4
 git+ssh://git@bitbucket.org/behos/flatpages_i18n_tinymce.git@v0.0.2
-django-simple-captcha==0.4.2
-django-jquery-lightbox==2.6
 bright-vc==1.1.0
 MySQL-python==1.2.5
 flup==1.0.2
