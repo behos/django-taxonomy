@@ -39,7 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'south',
     'sorl.thumbnail',
-    'removal_manager',
     'compressor',
     'modeltranslation',
     'tinymce',
@@ -49,7 +48,6 @@ INSTALLED_APPS = (
     'captcha',
     'jquery_lightbox',
     'seo',
-    'removals_seo',
     'flatpages_i18n_tinymce',
     'filebrowser',
 
