@@ -23,6 +23,7 @@ CAPTCHA_TEST_MODE = False
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
+SECRET_KEY = ""
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -42,15 +43,9 @@ INSTALLED_APPS = (
     'compressor',
     'modeltranslation',
     'tinymce',
-    'form_utils',
     'jquery',
-    'bootstrap3_datetime',
-    'captcha',
-    'jquery_lightbox',
-    'seo',
     'flatpages_i18n_tinymce',
     'filebrowser',
-
 )
 
 MIDDLEWARE_CLASSES = (
