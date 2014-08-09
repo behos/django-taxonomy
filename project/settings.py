@@ -11,14 +11,10 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS + (
-    ('Yiannis', 'disharmonic_dreams@hotmail.com'),
 )
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+q+pp6s0c!hj=&2tf^11r235rw1#jcb4kx)y58coi=px8nd=r4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -27,7 +23,7 @@ CAPTCHA_TEST_MODE = False
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
-ALLOWED_HOSTS = ['moritsisremovals.ohmypixelhosting.com', '*.moritsisremovals.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -70,9 +66,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
 )
 
-ROOT_URLCONF = 'removals.urls'
+ROOT_URLCONF = 'project.urls'
 
-WSGI_APPLICATION = 'removals.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 
 # Database
@@ -106,7 +102,7 @@ LANGUAGES = (
     ('el', 'Greek'),
 )
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, "removals/locale"),
+    os.path.join(BASE_DIR, "project/locale"),
 )
 
 TIME_ZONE = 'UTC'
@@ -124,7 +120,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "removals/static"),
+    os.path.join(BASE_DIR, "project/static"),
 )
 
 MEDIA_URL = '/media/'
@@ -140,11 +136,11 @@ STATICFILES_FINDERS = (
 SITE_ID = 1
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, "removals/templates"),
+    os.path.join(BASE_DIR, "project/templates"),
 )
 
 EMAIL_SUBJECT_PREFIX = ""
-SERVER_EMAIL = "noreply@moritsisremovals.com"
+SERVER_EMAIL = ""
 DEFAULT_FROM_EMAIL = SERVER_EMAIL
 
 SEO_FOR_MODELS = [
