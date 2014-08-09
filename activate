@@ -1,0 +1,52 @@
+# -*- shell-script -*-
+# Simple wrapper to create and activate a new virtualenv
+#
+# Usage:
+#   . ./activate [--clean]
+
+PROJECT="$(dirname `pwd`)"
+PYTHON_VERSION=2.7
+CLEAN=0
+UPDATE=0
+ENV_DIR=~/env/$PROJECT
+VIRTUALENV=virtualenv
+PYTHON=python${PYTHON_VERSION}
+PIP=pip
+
+while [ "$#" -gt 0 ]; do
+    if [ "$1" = "-c" -o "$1" = "--clean" ]; then
+        CLEAN=1
+    fi
+    if [ "$1" = "-e" -o "$1" = "--env-dir" ]; then
+        shift
+        ENV_DIR="$1"
+    fi
+    if [ "$1" = "-u" -o "$1" = "--update" ]; then
+        shift
+        UPDATE=1
+    fi
+    shift
+done
+
+hash "${VIRTUALENV}" 2>&- || VIRTUALENV=virtualenv-${PYTHON_VERSION}
+
+if [ `basename "${0#-}"` = "activate" ] ; then
+    echo "Usage: '. activate'"
+    exit
+fi
+
+if [ "$CLEAN" -eq 1 ] ; then
+    rm -rf "${ENV_DIR}"
+fi
+
+if [ ! -d "${ENV_DIR}" ] ; then
+    mkdir -p `dirname "${ENV_DIR}"`
+    "${VIRTUALENV}" --no-site-packages --distribute --python=${PYTHON} "${ENV_DIR}"
+fi
+
+. "${ENV_DIR}"/bin/activate
+
+if [ "$CLEAN" -eq 1 ] || [ "$UPDATE" -eq 1 ]; then
+    ${PIP} install -r requirements-first.txt
+    ${PIP} install -r requirements.txt
+fi
