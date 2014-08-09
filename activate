@@ -4,7 +4,7 @@
 # Usage:
 #   . ./activate [--clean]
 
-PROJECT="$(dirname `pwd`)"
+PROJECT="$(basename `pwd`)"
 PYTHON_VERSION=2.7
 CLEAN=0
 UPDATE=0
