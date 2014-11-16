@@ -167,5 +167,5 @@ if 'test' in sys.argv or 'runserver' in sys.argv:
         from testing_settings import *  # NOQA
     except ImportError:
         pass
-    
+
     INSTALLED_APPS = INSTALLED_APPS + ('debug_toolbar',)
