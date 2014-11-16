@@ -1,13 +1,4 @@
 Django==1.7.1
-sorl-thumbnail==11.12.1b
-fabric==1.10.0
-flake8==2.2.5
-Pillow==2.6.1
-pytz==2014.9
-django_compressor==1.4
-git+ssh://git@bitbucket.org/behos/flatpages_i18n_tinymce.git@v0.0.2
 bright-vc==1.1.0
-flup==1.0.2
-django-grappelli==2.6.3
-django-filebrowser==3.5.7
-django_debug_toolbar==1.2.2
+django_debug_toolbar
+django-mptt==0.6.1

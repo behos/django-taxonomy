@@ -23,14 +23,12 @@ CAPTCHA_TEST_MODE = False
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
-SECRET_KEY = ""
+SECRET_KEY = "rxxgrv(danqy&86gm9#_+#qg0y1cu(o(rr+a$n2s&q*o^*hvzy"
 ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = (
-    'modeltranslation',
-    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,22 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'sorl.thumbnail',
-    'compressor',
-    'tinymce',
-    'flatpages_i18n_tinymce',
-    'filebrowser',
-)
-
-MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    'taxonomy',
+    'mptt'
 )
 
 ROOT_URLCONF = 'project.urls'
@@ -120,8 +104,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # other finders..
-    'compressor.finders.CompressorFinder',
 )
 
 SITE_ID = 1
@@ -130,13 +112,20 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, "project/templates"),
 )
 
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+)
+
 EMAIL_SUBJECT_PREFIX = ""
 SERVER_EMAIL = ""
 DEFAULT_FROM_EMAIL = SERVER_EMAIL
-
-SEO_FOR_MODELS = [
-    'django.contrib.flatpages.models.FlatPage',
-]
 
 LOGGING = {
     'version': 1,
@@ -167,15 +156,6 @@ LOGGING = {
 }
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-
-TINYMCE_DEFAULT_CONFIG = {
-    'theme': "advanced",
-    'relative_urls': False,
-    'plugins': "media",
-    'theme_advanced_buttons1_add': "media",
-    'theme_advanced_resizing': True,
-    'theme_advanced_statusbar_location': 'top'
-}
 
 try:
     from local_settings import *  # NOQA
