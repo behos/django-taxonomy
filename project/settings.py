@@ -166,6 +166,8 @@ LOGGING = {
     },
 }
 
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
 TINYMCE_DEFAULT_CONFIG = {
     'theme': "advanced",
     'relative_urls': False,
