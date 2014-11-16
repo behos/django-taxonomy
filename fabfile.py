@@ -34,3 +34,9 @@ def create_tag():
 def test_and_pylint():
     local("./manage test")
     pylint()
+
+
+def publish():
+    create_tag()
+    local('python setup.py register -r pypi')
+    local('python setup.py sdist upload -r pypi')
