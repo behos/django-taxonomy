@@ -3,7 +3,7 @@ from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
 
-class TaxonomyModel(MPTTModel): 
+class TaxonomyModel(MPTTModel):
     def __unicode__(self):
         return self.name
     name = models.CharField(max_length=100)
