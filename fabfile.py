@@ -1,6 +1,7 @@
 from bright_vc import check_tag
 from fabric.context_managers import lcd
 from fabric.operations import local
+import taxonomy
 
 repo = "git@bitbucket.org:behos/taxonomy.git"
 
@@ -22,7 +23,8 @@ def makemessages():
         local(command)
 
 
-def create_tag(tag):
+def create_tag():
+    tag = "v" + taxonomy.__version__
     check_tag(tag)
     test_and_pylint()
     local('git tag %s' % tag)
