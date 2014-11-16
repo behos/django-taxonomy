@@ -10,3 +10,4 @@ bright-vc==1.1.0
 flup==1.0.2
 django-grappelli==2.6.3
 django-filebrowser==3.5.7
+django_debug_toolbar==1.2.2

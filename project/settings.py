@@ -42,7 +42,6 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'compressor',
     'tinymce',
-    'jquery',
     'flatpages_i18n_tinymce',
     'filebrowser',
 )
