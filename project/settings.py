@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'modeltranslation',
     'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,10 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'south',
     'sorl.thumbnail',
     'compressor',
-    'modeltranslation',
     'tinymce',
     'jquery',
     'flatpages_i18n_tinymce',
@@ -165,11 +164,6 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': False,
         },
-        'removals': {
-            'handlers': ['logfile'],
-            'level': 'WARNING',
-            'propagate': False
-        },
     },
 }
 
@@ -192,3 +186,5 @@ if 'test' in sys.argv or 'runserver' in sys.argv:
         from testing_settings import *  # NOQA
     except ImportError:
         pass
+    
+    INSTALLED_APPS = INSTALLED_APPS + ('debug_toolbar',)
